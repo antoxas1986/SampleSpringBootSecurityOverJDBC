@@ -1,0 +1,14 @@
+<h5>pass security</h5>
+<form action="/logout" method="post">
+	<input type="submit" value="Sign Out" />
+</form>
+
+<input type="button" onclick="run()" value="Get role"/>
+<p id="role"> </p>
+<script>
+function run(){
+	var p = document.getElementById("role");
+	p.innerHTML = "admin";
+}
+</script>
+

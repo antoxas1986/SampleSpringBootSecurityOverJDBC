@@ -1,0 +1,25 @@
+CREATE DATABASE `spring2` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `roleId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK1_idx` (`roleId`),
+  CONSTRAINT `FK1` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `usercred` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(45) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `enabled` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `FK0_idx` (`userid`),
+  CONSTRAINT `FK0` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
