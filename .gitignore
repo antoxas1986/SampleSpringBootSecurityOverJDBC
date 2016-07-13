@@ -1,3 +1,7 @@
 /.apt_generated/
-
+.idea/
 target/
+demo.iml
+src/main/resources/static/
+src/main/resources/templates/
+src/test/
